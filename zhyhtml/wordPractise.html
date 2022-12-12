@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>逸码字根练习</title>
+<script>
+var root_map = [
+    {
+    	"a": ["口", "囗"],
+    },
+    {
+    	"b": ["宀", "㝉", "双", "又", "食", "饣", "甬", "用", "中", "虫", "鬼", "疑", "七", "", "比", "匕", ""],
+    },
+    {
+    	"c": ["氵", "𢆉", "白", "六", "丙", "两", "丑", "以", "皮", "旦", "隹", "曷", "久", "", "小", "", ""],
+    },
+    {
+    	"d": ["二", "三", "", "㐄", "", "羊", "", "", "疒", "㐫", "乡", "", "幺", "山", "屮", "㐱", "彑", "冊", "戊", "戉", "兀", "", "鬲", "贵", "丹", "身", "肖", "文", "攵", "夂", "夊", "臼", "⺽", "发", "谷", "壴", "舛", "夹", "布", "勿", "垂", "莫", "囱", "咸", ""],
+    },
+    {
+    	"e": [],
+    },
+    {
+    	"f": ["人", "门", "个", "见", "片", "爿", "", "", "乂", "㐅", "", "尸", "", "竹", "", "", "子", "孑", "林", "其", "韦", "央", "氏", "尹", "", "", "", "彐", ""],
+    },
+    {
+    	"g": ["忄", "回", "叚", "圭", "占", "至", "祭", "癶", "舟", "丽", "也", "西", "覀", "酉", "艮", "", "牛", "牜", "", "", "刀", "匚", "", "", "儿", ""],
+    },
+    {
+    	"h": ["耳", "阝", "廾", "去", "石", "丆", "", "主", "分", "豕", "󰃈", "", "平", "具", "", "且", "目", "音", "车", "車", "", "亏", "丂", "瓜", "爪", "爫", "亥", "辟"],
+    },
+    {
+    	"i": [],
+    },
+    {
+    	"j": ["辶", "廴", "亻", "工", "不", "力", "万", "共", "", "", "气", "之", "乙", "㇂", "乚", "", "殳", "骨", "乎", "早", "免", "百", "未", "末", "耒", "囟", "襄"],
+        
+    },
+    {
+    	"k": ["⺍", "丩", "旡", "𢀖", "土", "", "士", "", "", "来", "丰", "", "", "", "屰", "", "冂", "凵", "⺆", "禾", "卒", "亠", "句", "勹", "元", "尞", "毛", "前", "买", "友", "自", "非", "瓦", "鹿"],
+        
+    },
+    {
+    	"l": ["衤", "礻", "走", "龰", "𤴓", "疋", "云", "立", "", "", "⾘", "台", "厶", "长", "镸", "可", "〢", "", "", "刂", "兼", "屯", "龙", "", "", "支"],
+        
+    },
+    {
+    	"m": ["大", "𭤨", "广", "厂", "", "鸟", "", "九", "吉", "辰", "豆", "火", "⺀", "冫", "", "丷", "", "水", "氺", "", "灬", ""],
+    	
+    },
+    {
+    	"n": ["彳", "寸", "", "", "", "㠯", "", "吅", "心", "天", "夭", "犬", "犭", "尢", "正", "止", "齿", "八", "矢", "青", "冏", "凸", "凹", "户"],
+    	
+    },
+    {
+    	"o": [],
+    },
+    {
+    	"p": ["歹", "夕", "王", "壬", "雨", "角", "夫", "⾌", "", "亡", "", "", "", "内", "⽱", "禸", "页", "束"],
+       
+    },
+    {
+    	"q": ["艹", "", "卌", "母", "毌", "毋", "古", "米", "㡀", "佥", "", "衣", "", "", "", "辛", "业", "令", "今"]
+    },
+    {
+    	"r": []
+    },
+    {
+    	"s": ["丬", "", "了", "我", "厃", "⺈", "鱼", "牙", "兰", "䒑", "而", "乃", "日", "曰", "各", "革", "臣", "𦣞", "俞", "敖", "番"],
+    },
+    {
+    	"t": ["弓", "十", "马", "月", "", "穴", "凡", "几", "𠘨", "四", "罒", "皿"],
+        
+    },
+    {
+    	"u": [],
+       
+    },
+    {
+    	"v" : ["冖", "讠", "言", "及", "上", "卜", "⺊", "", "足", "于", "丁", "亍", "甘", "廿", "羽", "习", "生", "糸", "丘", "斤", "聿", "肀"],
+        
+    },
+    {
+    	"w": ["金", "钅"],
+        
+    },
+    {
+    	"x": ["扌", "手", "龵", "矛", "予", "示", "田", "甲", "里", "曲", "由", "巴", "己", "巳", "已", "㔾"],
+        
+    },
+    {
+    	"y": ["耂", "下", "方", "缶", "甫", "千", "干", "享", "", "𫇦", "女", "川", "", "巛", "巜", "彡", "合", "黑", "", "", "𠔿", "才", "㇉", "㇡", "", "𠃍", "乛", ""],
+        
+    },
+    {
+    	"z": ["纟", "乍", "贝", "巾", "先", "欠", "卩", "", "民", "卑", "吾", "亦", "󰁖"],
+        
+    },
+    {
+    	";": ["木", "朩", "戋", "戈", "弋", ""],
+    }
+]
+
+
+
+function main() {
+    raw_area = document.getElementById("raw_area")
+    user_input = document.getElementById("user_input")
+    main_top = document.getElementById("maintop")
+    speed_label = document.getElementById("speedlabel")
+    total_label = document.getElementById("totallabel")
+    speed_timer = null
+    word_count = 0
+    start_time = 0
+    cur_input_max = 0
+    cur_input_index = 0
+    cur_tab = 0
+    total_words = []
+    total_index = 0
+
+    display_release_note()
+}
+
+function display_release_note() {
+    reset_timer()
+    clear_tabs_background(999)
+    clear_raw_area()
+    enable_user_input(false)
+    raw_area.style.fontSize = "16px"
+    raw_area.style.fontHeight = "16px"
+    var span = document.createElement("span")
+    span.innerText = hereDoc(function () {/*
+注意：本练习工具是在MoGu大佬的“徐码字根简码练习_2.5”修改而来，感谢MoGu大佬。本练习工具需要安装"98五笔超集字体"以显示全部字根.
+
+2020-06-14 更新 0.2.1:
+	增加"<戈无橫>"字根
+
+2020-06-14 更新 0.2.0:
+    添加样式
+
+2020-06-13 更新 0.1:
+    使用 27键逸码VV4码表
+    添加逸码字根
+
+2020-06-15 
+    修改字体并添加字体配置不再需要自行安装字体--by 丹木
+
+2020-06-28
+    去掉 "eruio" 五个笔画键--by 丹木
+    */})
+    raw_area.appendChild(span)
+}
+
+function display_help() {
+    reset_timer()
+    clear_tabs_background(0)
+    clear_raw_area()
+    enable_user_input(false)
+    raw_area.style.fontSize = "16px"
+    raw_area.style.fontHeight = "16px"
+    var span = document.createElement("span")
+    span.innerText = hereDoc(function () {/*
+纯形的顶功方案（包括主单、字词两个方案），提供极致的手感，无须选重的输入方案！ 单字码长较短。
+** 单字说明** 
+ 字根的拆分： 总字根数350-360，归类后为277个
+ 方案的取码 ：形形笔笔 22*27*5*5；  首形如果是笔画，归入 W 键（W 键君辛苦了），例如“玉==王（P）+丶（笔划键 W ）”。
+** 词组说明** 
+    二字词：A（形形）+ B（形形）+空格or笔划（去重或者顶屏）；     三字词：A（形形）+ B（形）+ C（形）+空格or笔划（去重或者顶屏）；     多字词：A（形）+ B（形）+……+ Z（形）+空格or笔划（去重或者顶屏）； 
+ --老荫茶 宜口者畅饮 逆胃者莫呸--
+        --By 小泥巴
+    */})
+    raw_area.appendChild(span)
+}
+//功能选择
+function choose_root(val) {
+    clear_tabs_background(val)
+    enable_user_input(true)
+    raw_area.style.fontSize = "45px"
+    raw_area.style.fontHeight = "45px"
+    user_input.removeAttribute("disabled")
+    user_input.focus()
+    total_index = 0
+    word_count = 0
+    cur_tab = val
+    speed_label.innerText = "速度：0.00字/分"
+
+    var all_words
+    switch (val) {
+        case 1:
+            all_words = get_root_words('a', 'e')
+            break
+        case 2:
+            all_words = get_root_words('f', 'i')
+            break
+        case 3:
+            all_words = get_root_words('j', 'm')
+            break
+        case 4:
+            all_words = get_root_words('n', 't')
+            break
+        case 5:
+            all_words = get_root_words('u', ';')
+            break
+        case 6:
+            all_words = get_root_words('a', ';')
+            break
+        default:
+            alert("impossible")
+    }
+
+    var option = get_option()
+    if (option == 0) {
+        total_words = all_words
+    } else if (option == 1) {
+        var arr = gen_shuttled(all_words.length)
+        for (var i = 0; i < arr.length; i++) {
+            arr[i] = all_words[arr[i]]
+        }
+        total_words = arr
+    } else {
+        var arr = gen_randoms(get_setup_count("total_count"), 0, all_words.length)
+        for (var i = 0; i < arr.length; i++) {
+            arr[i] = all_words[arr[i]]
+        }
+        total_words = arr
+    }
+
+    next_words()
+    key_hint()
+    total_label.innerText = "\t进度：0/" + total_words.length + "字"
+    
+    reset_timer()
+    //console.log("words: ", total_words.length)
+}
+
+function timeout() {
+    speed_timer = setTimeout("timeout()", 500)
+    var speed = 0.0
+    var elapsed = new Date().getTime() - start_time
+    if (word_count > 0 && elapsed > 0) {
+        speed = word_count * 60 * 1000 / elapsed
+        speed_label.innerText = "速度：" + speed.toFixed(2) + "字/分"
+    }
+}
+
+function start_timer() {
+    if (speed_timer == null) {
+        start_time = new Date().getTime()
+        timeout()
+    }
+}
+
+function reset_timer() {
+    if (speed_timer != null) {
+        clearTimeout(speed_timer)
+        speed_timer = null
+    }
+}
+
+//字根展示
+function get_root_words(begch, endch) {
+    var words = new Array()
+    var achar_code = 'a'.charCodeAt(0)
+    if (endch == ';') {
+	    var beg = begch.charCodeAt(0) - achar_code
+	    var end = 'z'.charCodeAt(0) - achar_code + 1 + 1
+    } else {
+	    var beg = begch.charCodeAt(0) - achar_code
+	    var end = endch.charCodeAt(0) - achar_code + 1
+    }
+    for (var i = beg; i < end; i++) {
+        var objs = root_map[i]
+        if (endch == ';' && i >= 26) {
+        	var key = ';'
+        } else {
+        	var key = String.fromCharCode(achar_code + i)
+        }
+        var curobj = objs[key]
+        for (var idx in curobj) {
+            words.push({ "key": key, "code": curobj[idx]})
+        }
+    }
+    return words
+}
+
+function next_words() {
+    var last_count = total_words.length - total_index
+    if (last_count <= 0) {
+        return false
+    }
+
+    var word_need = Math.min(last_count, get_setup_count("one_time_count"))
+    cur_input_max = word_need
+    cur_input_index = 0
+    clear_raw_area()
+
+    var target_words = total_words.slice(total_index, total_index + word_need)
+    for (idx in target_words) {
+        var span = document.createElement("span")
+        word = target_words[idx]
+        span.innerText = word.code + " "
+        span.setAttribute("key", word.key)
+        span.id = "word" + idx
+        span.style.color = "lightgrey"
+        raw_area.appendChild(span)
+    }
+    total_index += word_need
+
+    return true
+}
+
+function get_setup_count(id) {
+    var node = document.getElementById(id)
+    return parseInt(node.value)
+}
+
+function gen_shuttled(size) {
+    var array = new Array()
+    for (var i = 0; i < size; i++) {
+        array.push(i)
+    }
+    for (var i = 0; i < size; i++) {
+        var idx = Math.floor(Math.random() * size)
+        var tmp = array[idx]
+        array[idx] = array[i]
+        array[i] = tmp
+    }
+    return array
+}
+
+function gen_randoms(size, beg, end) {
+    var count = end - beg
+    var array = new Array()
+    for (var i = 0; i < size; i++) {
+        array.push(Math.floor(Math.random() * count + beg))
+    }
+    return array
+}
+
+function get_option() {
+    var radios = document.getElementsByName("radiobutton")
+    for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+            return i
+        }
+    }
+}
+
+function is_hint_option_checked() {
+    var checked = document.getElementsByName("key_hint_checkbox")[0].checked
+    return checked
+}
+
+function key_hint() {
+    if (user_input.getAttribute("disabled") != "true") {
+        if (is_hint_option_checked()) {
+            var word = document.getElementById("word" + cur_input_index)
+            var key = word.getAttribute("key")
+            user_input.setAttribute("placeholder", key)
+        } else {
+            user_input.setAttribute("placeholder", "")
+        }
+    }
+}
+
+function user_input_change() {
+    if (cur_input_index >= cur_input_max)
+        return
+
+    var word = document.getElementById("word" + cur_input_index)
+    var key = word.getAttribute("key")
+    var val = user_input.value
+    if (val[val.length-1] == " " || val[val.length-1] == ";" || val.length == key.length) {
+        if (val.toLowerCase() == key) {
+            start_timer()
+            cur_input_index++
+            word_count++
+            total_label.innerText = "\t进度：" + word_count + "/" + total_words.length + "字"
+            word.style.color = "black"
+            user_input.setAttribute("placeholder", "")
+        } else {
+            word.style.color = "red"
+            user_input.setAttribute("placeholder", key)
+        }
+        user_input.value = ""
+
+        if (cur_input_index >= cur_input_max) {
+            if (!next_words()) {
+                user_input.setAttribute("disabled", "true")
+                reset_timer()
+            }
+        }
+        
+        key_hint()
+    }
+    // console.log(word)
+    // console.log(word.getAttribute("key"))
+}
+
+function hereDoc(f) {　
+    return f.toString().replace(/^[^\/]+\/\*!?\s?/, '').replace(/\*\/[^\/]+$/, '');
+}
+
+function clear_tabs_background(activate_idx) {
+    var tabs = document.getElementsByClassName("tab")
+    for (var idx in tabs) {
+        if (tabs[idx].style) {
+            tabs[idx].style.backgroundColor = "#70abe6"
+            tabs[idx].style.boxShadow="0 0 black"
+        }
+    }
+    if (activate_idx != null) {
+        var tab = document.getElementById("tab" + activate_idx)
+        tab.style.backgroundColor = "white"
+        tab.style.boxShadow="inset 0 0 7px 0px black"
+    }
+}
+
+function msover(idx) {
+    //console.log(idx)
+    var tab = document.getElementById(idx);
+    if (!/inset/.exec(tab.style.boxShadow)){
+        tab.style.backgroundColor = "white"
+        tab.style.boxShadow = "0 0 10px 0px black"
+    } else {
+        tab.style.backgroundColor = "white"
+        tab.style.boxShadow="inset 0 0 7px 0px black"
+    }
+}
+
+function msdown(idx) {
+    var tab = document.getElementById(idx);
+    if (!/inset/.exec(tab.style.boxShadow)){
+        tab.style.backgroundColor = "white"
+        tab.style.boxShadow = "inset 0 0 7px 0px black"
+    }
+}
+
+function msout(idx) {
+    var tab = document.getElementById(idx);
+    if (!/inset/.exec(tab.style.boxShadow))
+    {
+        tab.style.backgroundColor = "#70abe6"
+        tab.style.boxShadow="0 0 black"
+    } else {
+        tab.style.backgroundColor = "white"
+        tab.style.boxShadow="inset 0 0 7px 0px black"
+    }
+}
+
+function enable_user_input(val) {
+    if (val) {
+        user_input.style.display = "block"
+        main_top.style.display = "block"
+
+    } else {
+        user_input.style.display = "none"
+        main_top.style.display = "none"
+    }
+    user_input.value = ""
+}
+
+function clear_raw_area() {
+    while (raw_area.hasChildNodes()) {
+        raw_area.removeChild(raw_area.lastChild);
+    }
+}
+
+</script>
+<style  type="text/css">
+html { font-family: serif; }
+
+@font-face {  
+ font-family: EtypeFont;
+ src: url("./vv4.ttf");
+}  
+
+aside {
+    text-align: center;
+    width: 160px;
+    height: 100%;
+    background-color: #70abe6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 130%;
+    cursor: default;
+}
+
+.textarea {
+    font-family: EtypeFont;
+    width: 98%;
+    min-height: 300px;
+    padding: 8px;
+    outline: 0;
+    border: none;
+    word-wrap: normal;
+    overflow-y: visible;
+    resize: none;
+
+    border-color: rgba(82, 168, 236, 0.8);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3), 0 0 16px rgba(82, 168, 236, 1);
+}
+
+.spinner, #user_input {
+    padding: 5px;
+    outline: 0;
+    border: 2px solid #a0b3d6;
+
+    border-color: rgba(82, 168, 236, 0.8);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1), 0 0 16px rgba(82, 168, 236, 0.6);
+}
+
+.tab:hover {
+    background-color: white;
+}
+
+.tab {
+    padding: 6px;
+}
+
+#content {
+    padding-left: 170px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+#maintop {
+    padding-left: 170px;
+    line-height: 35px;
+}
+
+#aside_title {
+    font-size: 220%;
+    padding: 20px;
+}
+
+#author {
+    font-size: 100%;
+    padding: 4px;
+    padding-top: 15px;
+    color: #fbfcff;
+    text-shadow: 8px 7px 14px black;
+    text-align: center;
+    /* background-color: white; */
+    box-shadow: inset 0 0 0px 0px black;
+}
+
+#user_input {
+    margin-top: 20px;
+    align-self: center;
+    height: 80px;
+    width: 90px;
+    margin-left: 42%;
+    align-content: center;
+    font-size: 400%;
+}
+
+</style> 
+</head>
+
+<body onload="main()">
+    <aside>
+        <div id="aside_title">逸码</div>
+        <div class="tab" id="tab0" onmousedown="msdown('tab0')" onmouseout="msout('tab0')" onmouseover="msover('tab0')"  onclick="display_help()">快速入门</div>
+        <div class="tab" id="tab1" onmousedown="msdown('tab1')" onmouseout="msout('tab1')" onmouseover="msover('tab1')"  onclick="choose_root(1)">'a-e'字根</div>
+        <div class="tab" id="tab2" onmousedown="msdown('tab2')" onmouseout="msout('tab2')" onmouseover="msover('tab2')"  onclick="choose_root(2)">'f-i'字根</div>
+        <div class="tab" id="tab3" onmousedown="msdown('tab3')" onmouseout="msout('tab3')" onmouseover="msover('tab3')"  onclick="choose_root(3)">'j-m'字根</div>
+        <div class="tab" id="tab4" onmousedown="msdown('tab4')" onmouseout="msout('tab4')" onmouseover="msover('tab4')"  onclick="choose_root(4)">'n-t'字根</div>
+        <div class="tab" id="tab5" onmousedown="msdown('tab5')" onmouseout="msout('tab5')" onmouseover="msover('tab5')"  onclick="choose_root(5)">'u-;'字根</div>
+        <div class="tab" id="tab6" onmousedown="msdown('tab6')" onmouseout="msout('tab6')" onmouseover="msover('tab6')"  onclick="choose_root(6)">全部字根</div>
+        <div class="tab" id="tab999" onmousedown="msdown('tab999')" onmouseout="msout('tab999')" onmouseover="msover('tab999')"  onclick="display_release_note()">更新历史</div>
+        <div id="author">作者: 北泽无鱼（修改发布by丹木）</div>
+    </aside> 
+    <div id="maintop">
+        <br>
+        <label>单次字根数：</label>
+        <input id="one_time_count" class="spinner" type="number", min="10", max="500", value="30">
+        <label>练习字根数：</label>
+        <input id="total_count" class="spinner" type="number", min="10", max="500", value="120">
+        </br>
+        <input type="radio" name="radiobutton" onclick="choose_root(cur_tab)" checked="">顺序单次</input>
+        <input type="radio" name="radiobutton" onclick="choose_root(cur_tab)">乱序单次</input>
+        <input type="radio" name="radiobutton" onclick="choose_root(cur_tab)">乱序重复</input>
+        <input type="checkbox" name="key_hint_checkbox" onclick="key_hint()">编码提示</input>
+        <br>
+        <label id="totallabel"></label>
+        <label id="speedlabel"></label>
+        </br>
+    </div>
+    <div id="content">
+        <div class="textarea", id="raw_area"></div>
+        <input id="user_input" oninput="user_input_change()">
+    </div>
+</body>
+</html>
