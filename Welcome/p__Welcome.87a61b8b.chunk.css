@@ -15,7 +15,17 @@ a:focus {
   -webkit-text-decoration-skip: ink;
   text-decoration-skip: ink
 }
-
+.ant-page-header-heading-title {
+  margin-right: 12px;
+  margin-bottom: 0;
+  color: rgba(0, 0, 0, .85);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis
+}
 .home-wrapper {
   width: 100%;
   color: #697b8c
@@ -32616,17 +32626,7 @@ div.ant-typography-edit-content.ant-typography-rtl {
   overflow: hidden
 }
 
-.ant-page-header-heading-title {
-  margin-right: 12px;
-  margin-bottom: 0;
-  color: rgba(0, 0, 0, .85);
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 32px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis
-}
+
 
 .ant-page-header-heading .ant-avatar {
   margin-right: 12px
